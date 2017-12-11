@@ -1,8 +1,6 @@
 {
   "name": "Lectrum",
   "version": "0.1.0",
-  "homepage": "http://myname.github.io/",
-  "private": true,
   "dependencies": {
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
