@@ -66,14 +66,18 @@ module.exports = {
         publicPath,
         // Point sourcemap entries to original disk location (format as URL on Windows)
         devtoolModuleFilenameTemplate: (info) =>
-            path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
+            path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
     },
     resolve: {
         // This allows you to set a fallback for where Webpack should look for modules.
         // We placed these paths second because we want `node_modules` to "win"
         // if there are any conflicts. This matches Node resolution mechanism.
         // https://github.com/facebookincubator/create-react-app/issues/253
-        modules: ['node_modules', path.resolve(__dirname, "../src"), paths.appNodeModules].concat(
+        modules: [
+            'node_modules',
+            path.resolve(__dirname, '../src'),
+            paths.appNodeModules
+        ].concat(
             // It is guaranteed to exist because we tweak it in `env.js`
             process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
         ),
@@ -95,7 +99,7 @@ module.exports = {
         alias: {
             // Support React Native Web
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-            'react-native': 'react-native-web'
+            'react-native': 'react-native-web',
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -104,7 +108,7 @@ module.exports = {
             // please link the files into your node_modules/ and let module-resolution kick in.
             // Make sure your source files are compiled, as they will not be processed in any way.
             new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
-        ]
+        ],
     },
     module: {
         strictExportPresence: true,
@@ -123,12 +127,12 @@ module.exports = {
                         options: {
                             formatter:   eslintFormatter,
                             eslintPath:  require.resolve('eslint'),
-                            useEslintrc: true
+                            useEslintrc: true,
                         },
-                        loader: require.resolve('eslint-loader')
+                        loader: require.resolve('eslint-loader'),
                     }
                 ],
-                include: paths.appSrc
+                include: paths.appSrc,
             },
             {
                 // "oneOf" will traverse all following loaders until one will
@@ -143,8 +147,8 @@ module.exports = {
                         loader:  require.resolve('url-loader'),
                         options: {
                             limit: 100000,
-                            name:  'static/media/[name].[hash:8].[ext]'
-                        }
+                            name:  'static/media/[name].[hash:8].[ext]',
+                        },
                     },
                     // Process JS with Babel.
                     {
@@ -155,8 +159,8 @@ module.exports = {
                             // This is a feature of `babel-loader` for webpack (not Babel itself).
                             // It enables caching results in ./node_modules/.cache/babel-loader/
                             // directory for faster rebuilds.
-                            cacheDirectory: true
-                        }
+                            cacheDirectory: true,
+                        },
                     },
                     // "postcss" loader applies autoprefixer to our CSS.
                     // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -170,8 +174,8 @@ module.exports = {
                             {
                                 loader:  require.resolve('css-loader'),
                                 options: {
-                                    importLoaders: 1
-                                }
+                                    importLoaders: 1,
+                                },
                             },
                             {
                                 loader:  require.resolve('postcss-loader'),
@@ -188,36 +192,39 @@ module.exports = {
                                                 'Firefox ESR',
                                                 'not ie < 9' // React doesn't support IE8 anyway
                                             ],
-                                            flexbox: 'no-2009'
+                                            flexbox: 'no-2009',
                                         })
-                                    ]
-                                }
+                                    ],
+                                },
                             }
-                        ]
+                        ],
                     },
                     {
                         test: /\.scss$/,
                         use:  [
                             {
-                                loader: 'style-loader'
+                                loader: 'style-loader',
                             },
                             {
                                 loader:  'css-loader',
                                 options: {
                                     modules:        'true',
                                     localIdentName:
-                                        '[path][name]__[local]--[hash:base64:5]'
-                                }
+                                        '[path][name]__[local]--[hash:base64:5]',
+                                },
                             },
                             {
                                 loader:  'sass-loader',
                                 options: {
                                     modules:        'true',
                                     localIdentName:
-                                        '[path][name]__[local]--[hash:base64:5]'
-                                }
+                                        '[path][name]__[local]--[hash:base64:5]',
+                                    includePaths: [
+                                        path.resolve(__dirname, '../src')
+                                    ],
+                                },
                             }
-                        ]
+                        ],
                     },
                     // "file" loader makes sure those assets get served by WebpackDevServer.
                     // When you `import` an asset, you get its (virtual) filename.
@@ -232,14 +239,14 @@ module.exports = {
                         exclude: [/\.js$/, /\.html$/, /\.json$/],
                         loader:  require.resolve('file-loader'),
                         options: {
-                            name: 'static/media/[name].[hash:8].[ext]'
-                        }
+                            name: 'static/media/[name].[hash:8].[ext]',
+                        },
                     }
-                ]
+                ],
             }
             // ** STOP ** Are you adding a new loader?
             // Make sure to add the new loader(s) before the "file" loader.
-        ]
+        ],
     },
     plugins: [
         // Makes some environment variables available in index.html.
@@ -250,7 +257,7 @@ module.exports = {
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin({
             inject:   true,
-            template: paths.appHtml
+            template: paths.appHtml,
         }),
         // Add module names to factory functions so they appear in browser profiler.
         new webpack.NamedModulesPlugin(),
@@ -281,12 +288,12 @@ module.exports = {
         dgram: 'empty',
         fs:    'empty',
         net:   'empty',
-        tls:   'empty'
+        tls:   'empty',
     },
     // Turn off performance hints during development because we don't do any
     // splitting or minification in interest of speed. These warnings become
     // cumbersome.
     performance: {
-        hints: false
-    }
+        hints: false,
+    },
 };
