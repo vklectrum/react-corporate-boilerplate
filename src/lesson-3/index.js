@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Example from './context/example-1';
+import Example from './props/example-1';
 
 import '../theme/reset';
 
