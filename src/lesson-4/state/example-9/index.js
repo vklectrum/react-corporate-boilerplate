@@ -11,7 +11,7 @@ export default class Example extends Component {
 
         // :(
         // this.setState({
-        //     age: 5001
+        //     age: 5001,
         // });
 
         return (
