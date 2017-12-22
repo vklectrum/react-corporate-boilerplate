@@ -20,10 +20,6 @@ export default class Parent extends Component {
         log('• parent componentWillMount •', parent);
     }
 
-    componentWillUnmount () {
-        clearInterval(this.timer);
-    }
-
     _increment () {
         this.setState(({ count }) => ({
             count: count + 1,
