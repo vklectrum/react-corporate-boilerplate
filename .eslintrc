@@ -126,7 +126,7 @@ rules:
   no-undef-init: 1
   no-undef: 1
   no-undefined: 0
-  no-unused-vars: 1
+  no-unused-vars: 0
   no-use-before-define: 1
   array-bracket-spacing: 1
   block-spacing: 1
@@ -172,7 +172,7 @@ rules:
   nj-negated-condition: 0
   no-nested-ternary: 0
   no-new-object: 1
-  no-plusplus: [1, { "allowForLoopAfterthoughts": true }]
+  no-plusplus: [0, { "allowForLoopAfterthoughts": true }]
   no-restricted-syntax: 1
   no-tabs: 1
   no-trailing-spaces: 1
@@ -226,7 +226,7 @@ rules:
   react/no-deprecated: 1
   react/no-did-mount-set-state: 1
   react/no-did-update-set-state: 1
-  react/no-direct-mutation-state: 1
+  react/no-direct-mutation-state: 0
   react/no-find-dom-node: 1
   react/no-is-mounted: 1
   react/no-multi-comp: 0
