@@ -13,7 +13,6 @@ export default class Child extends Component {
     constructor () { // props and context may be passed as parameters
         super(); // props and context may be passed as arguments
 
-
         console.log(
             '• child constructor with props and context •',
             this.props,
