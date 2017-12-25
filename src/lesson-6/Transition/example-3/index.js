@@ -11,12 +11,6 @@ export default class Example extends Component {
         todo:  '',
     };
 
-    showBall = () => {
-        this.setState({
-            show: true,
-        });
-    };
-
     hanldeInputChange = (event) => {
         this.setState({
             todo: event.target.value,

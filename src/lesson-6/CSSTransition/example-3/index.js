@@ -10,14 +10,6 @@ export default class Example extends Component {
         todo:  '',
     };
 
-    componentDidMount () {
-        setInterval(() => {
-            this.setState(({ show }) => ({
-                show: !show,
-            }));
-        }, 2500);
-    }
-
     hanldeInputChange = (event) => {
         this.setState({
             todo: event.target.value,
