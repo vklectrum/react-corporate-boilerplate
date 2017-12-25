@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Example from './Transition/example-3';
+import Example from './CSSTransition/example-1';
 
 import '../theme/reset';
 
