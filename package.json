@@ -74,7 +74,7 @@
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.js?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+      "<rootDir>/src/lesson-7/jest/example-1/index.test.js"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
