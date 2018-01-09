@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 
 // Instruments
-import * as actions from './actions/posts';
-import dispatcher from './dispatcher';
-import PostsStore from './stores/posts';
+import * as actions from '../../actions/posts';
+import dispatcher from '../../dispatcher';
+import PostsStore from '../../stores/posts';
 
 export default class Feed extends Component {
-    state = PostsStore.getInitialState();
+    state = PostsStore.getState();
 
     componentDidMount () {
         PostsStore.subscribe(this.onChange);
@@ -18,17 +18,15 @@ export default class Feed extends Component {
     }
 
     onChange = () => {
-        this.setState(() => ({
-            posts: PostsStore.getPosts(),
-        }));
-    }
+        this.setState(() => PostsStore.getState());
+    };
 
     fetchPosts = () => {
         dispatcher.dispatch(actions.fetchPosts());
     };
 
     render () {
-        const { posts } = this.state;
+        const { posts, postsFetching } = this.state;
 
         const postsList = posts.map(({ comment, id }) => <li key = { id }>{comment}</li>);
 
@@ -37,7 +35,7 @@ export default class Feed extends Component {
                 <h1>Feed</h1>
                 <br />
                 <button onClick = { this.fetchPosts }>Fetch posts...</button>
-                <ul>{postsList}</ul>
+                <ul>{postsFetching ? 'Loading...' : postsList}</ul>
             </section>
         );
     }

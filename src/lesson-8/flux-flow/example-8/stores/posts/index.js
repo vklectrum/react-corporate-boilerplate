@@ -2,7 +2,7 @@
 import { EventEmitter } from 'events';
 
 // Instruments
-import * as types from '../../actions/posts/types';
+import { FETCH_POSTS } from '../../actions/posts/types';
 import dispatcher from '../../dispatcher';
 
 export default new class PostsStore extends EventEmitter {
@@ -10,12 +10,13 @@ export default new class PostsStore extends EventEmitter {
         super();
 
         this.state = {
-            posts: [],
+            posts:         [],
+            postsFetching: false,
         };
 
         dispatcher.register((action) => {
             switch (action.type) {
-                case types.FETCH_POSTS:
+                case FETCH_POSTS:
                     this.fetchPosts();
                     break;
 
@@ -37,17 +38,14 @@ export default new class PostsStore extends EventEmitter {
         this.emit('change');
     }
 
-    getInitialState () {
-        this.state = [];
-
+    getState () {
         return this.state;
     }
 
-    getPosts () {
-        return this.state.posts;
-    }
-
     async fetchPosts () {
+        this.state.postsFetching = true;
+        this.update();
+
         const posts = await new Promise((resolve) => {
             setTimeout(
                 () => resolve([{ id: '123', comment: 'yo!' }, { id: '456', comment: 'sup cuz?' }]),
@@ -56,6 +54,7 @@ export default new class PostsStore extends EventEmitter {
         });
 
         this.state.posts = posts;
+        this.state.postsFetching = false;
         this.update();
     }
 }();
