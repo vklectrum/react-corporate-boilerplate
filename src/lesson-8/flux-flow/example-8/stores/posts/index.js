@@ -38,6 +38,8 @@ export default new class PostsStore extends EventEmitter {
     }
 
     getInitialState () {
+        this.state = [];
+
         return this.state;
     }
 
