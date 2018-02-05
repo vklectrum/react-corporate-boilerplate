@@ -7,13 +7,13 @@ const func1 = (a, b) => {
 };
 
 const func2 = (returnedValue) => {
-    console.log('2: coposition happens');
+    console.log('2: composition progressing');
 
     return returnedValue ** returnedValue;
 };
 
 const func3 = (returnedValue) => {
-    console.log('3: coposition ends');
+    console.log('3: composition ends');
 
     return `${returnedValue} ✓`;
 };

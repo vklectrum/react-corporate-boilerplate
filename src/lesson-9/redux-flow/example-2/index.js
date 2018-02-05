@@ -1,3 +1,3 @@
 import store from '../core/store';
 
-console.log('•λ•', store.getState());
+console.log('• Store.getState() •', store.getState());
