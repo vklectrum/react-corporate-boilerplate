@@ -1,4 +1,13 @@
-// Core
-import { Dispatcher } from 'flux';
+export default new class Dispatcher {
+    constructor () {
+        this.__listeners = [];
+    }
 
-export default new Dispatcher();
+    dispatch (action) {
+        this.__listeners.forEach((listener) => listener(action));
+    }
+
+    register (listener) {
+        this.__listeners.push(listener);
+    }
+}();
