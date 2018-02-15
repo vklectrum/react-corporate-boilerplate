@@ -158,7 +158,7 @@ rules:
   max-statements-per-line: 1
   new-cap: [1, {"capIsNewExceptions": ["List", "Map"]}]
   new-parens: 1
-  newline-after-var: 1
+  newline-after-var: 0
   newline-before-return: 1
   newline-per-chained-call: 0
   no-array-constructor: 1
