@@ -1,0 +1,10 @@
+.todo {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    user-select: none;
+
+    & svg {
+        margin-right: 1rem;
+    }
+}
