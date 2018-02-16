@@ -1,9 +1,8 @@
-
 // Core
 import React, { Component } from 'react';
 
 // Imstruments
-import transform from './HOCSvg';
+import { withSvg } from './HOCSvg';
 
 class Checkbox extends Component {
     render () {
@@ -33,4 +32,4 @@ class Checkbox extends Component {
     }
 }
 
-export default transform({ viewBoxWidth: 27, viewBoxHeight: 27, width: 25, height: 25 })(Checkbox);
+export default withSvg({ viewBoxWidth: 27, viewBoxHeight: 27, width: 25, height: 25 })(Checkbox);

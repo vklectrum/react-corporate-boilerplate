@@ -27,6 +27,4 @@ class Base extends Component {
     }
 }
 
-const enhanceBaseComponent = withLogging({ delay: 2000, color: 'ff2ee0' });
-
-export default enhanceBaseComponent(Base);
+export default withLogging({ delay: 2000, color: 'f8075a' })(Base);

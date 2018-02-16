@@ -1,7 +1,7 @@
 // Core
 import React, { Component } from 'react';
 
-const transformSVG = (
+const transform = (
     Injectable,
     { viewBoxWidth = 0, viewBoxHeight = 0, width = 0, height = 0 } = {},
 ) =>
@@ -70,4 +70,4 @@ const transformSVG = (
         }
     };
 
-export default (config) => (Injectable) => transformSVG(Injectable, config);
+export const withSvg = (config) => (Injectable) => transform(Injectable, config);
