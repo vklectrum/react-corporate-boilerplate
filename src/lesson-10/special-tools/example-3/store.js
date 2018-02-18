@@ -25,6 +25,7 @@ const middleware1 = (store) => (next) => (action) => {
         console.log('• middleware 1 •');
         next(action);
     } else if (store.getState().posts.length < 5) {
+        console.log('• middleware 1 •');
         next(action);
     } else {
         console.log('There are 5 posts already.');

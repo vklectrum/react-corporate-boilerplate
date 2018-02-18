@@ -16,7 +16,7 @@ createPostButton.addEventListener('click', () => {
 deletePostButton.addEventListener('click', () => {
     const [newestPost] = store.getState().posts;
 
-    newestPost && store.dispatch(deletePost(newestPost.id));
+    newestPost && deletePost(newestPost.id);
 });
 
 // Create post async on click

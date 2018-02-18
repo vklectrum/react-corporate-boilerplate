@@ -18,7 +18,7 @@ const logger = (store) => (next) => (action) => {
         '| Action → ',
         action,
         '| State after → ',
-        store.getState(),
+        stateAfter
     );
 };
 
