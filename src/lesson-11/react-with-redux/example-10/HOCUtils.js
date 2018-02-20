@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-component-props */
 import React, { Component } from 'react';
 import { log } from 'helpers';
 
@@ -5,29 +6,36 @@ function getDisplayName (WrappedComponent) {
     return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
 
-const withLogging = (Injectable, options = { delay: 1000, color: 'fffee0' }) => {
-    class WithLogging extends Component {
-        componentWillMount () {
-            const component = `${getDisplayName(Injectable)} component:`;
-            const report = () => log(`${component} log to external service...`, options.color);
+const withHover = (Injectable, options = { color1: 'red', color2: 'blue' }) => {
+    class WithHover extends Component {
+        state = {
+            hover: false,
+        };
 
-            report();
+        _handleMouseEnter = () => this.setState({ hover: true });
 
-            this.log = setInterval(report, options.delay);
-        }
-
-        componentWillUnmount () {
-            clearInterval(this.log);
-        }
+        _handleMouseLeave = () => this.setState({ hover: false });
 
         render () {
-            return <Injectable />;
+            const { hover } = this.state;
+
+            const style = {
+                color:      hover ? options.color1 : options.color2,
+                fontSize:   hover ? options.fontSize : 20,
+                transition: options.transition,
+            };
+
+            return (
+                <span onMouseEnter = { this._handleMouseEnter } onMouseLeave = { this._handleMouseLeave }>
+                    <Injectable style = { style } />
+                </span>
+            );
         }
     }
 
-    WithLogging.displayName = `WithLogging(${getDisplayName(Injectable)})`;
+    WithHover.displayName = `WithHover(${getDisplayName(Injectable)})`;
 
-    return WithLogging;
+    return WithHover;
 };
 
-export default (options) => (Injectable) => withLogging(Injectable, options);
+export default (options) => (Injectable) => withHover(Injectable, options);

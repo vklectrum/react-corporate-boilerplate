@@ -1,35 +1,25 @@
-import React, { Component, Fragment } from 'react';
-import withHover from './HOCUtils';
+import React, { Component } from 'react';
+import Checkbox from './Checkbox';
+import Styles from './styles';
 
-@withHover
-class Heading extends Component {
+export default class Todo extends Component {
+    state = { completed: false };
+
+    _complete = () => this.setState(({ completed }) => ({ completed: !completed }));
+
     render () {
-        const { hover } = this.props;
+        const { completed } = this.state;
 
-        const color = hover ? 'gold' : 'rebeccapurple';
-
-        return <h1 style = { { color } }>Heading of a component!</h1>;
-    }
-}
-
-@withHover
-class Body extends Component {
-    render () {
-        const { hover } = this.props;
-
-        const color = hover ? 'deepskyblue' : 'firebrick';
-
-        return <p style = { { color } }>Body of a component!</p>;
-    }
-}
-
-export default class Base extends Component {
-    render () {
         return (
-            <Fragment>
-                <Heading />
-                <Body />
-            </Fragment>
+            <li className = { Styles.todo } >
+                <Checkbox
+                    checked = { completed }
+                    color1 = '#363636'
+                    color2 = '#fff'
+                    onClick = { this._complete }
+                />
+                <code>Task completed</code>
+            </li>
         );
     }
 }

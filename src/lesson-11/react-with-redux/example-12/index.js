@@ -1,5 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Component from './Component';
+import { Provider } from 'react-redux';
 
-render(<Component />, document.getElementById('root'));
+import Feed from './Feed';
+import store from '../core/store';
+
+render(
+    <Provider store = { store }>
+        <Feed />
+    </Provider>,
+    document.getElementById('root'),
+);

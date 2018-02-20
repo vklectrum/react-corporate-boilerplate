@@ -4,18 +4,18 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Instruments
-import { createPost } from '../core/actions/posts';
+import { createPost, deletePost } from '../core/actions/posts';
 
 // Components
 import Post from './Post';
 
 class Feed extends Component {
-    _createPost = () => this.props.createPost();
+    _createPost = () => this.props.actions.createPost();
 
     render () {
-        const { posts: postsData } = this.props;
+        const { posts: postsData, actions } = this.props; // eslint-disable-line
 
-        const posts = postsData.map((props) => <Post key = { props.id } { ...props } />);
+        const posts = postsData.map((props) => <Post actions = { actions } key = { props.id } { ...props } />);
 
         return (
             <Fragment>
@@ -29,6 +29,8 @@ class Feed extends Component {
 
 const mapStateToProps = (state) => state;
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ createPost }, dispatch);
+const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators({ createPost, deletePost }, dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);
