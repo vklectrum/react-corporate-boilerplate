@@ -1,6 +1,7 @@
 // Core
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 // Instruments
 import { createPost } from '../core/actions/posts';
@@ -9,7 +10,7 @@ import { createPost } from '../core/actions/posts';
 import Post from './Post';
 
 class Feed extends Component {
-    _createPost = () => this.props.dispatch(createPost());
+    _createPost = () => this.props.createPost();
 
     render () {
         const { posts: postsData } = this.props;
@@ -26,4 +27,8 @@ class Feed extends Component {
     }
 }
 
-export default connect((state) => state)(Feed);
+const mapStateToProps = (state) => state;
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({ createPost }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Feed);

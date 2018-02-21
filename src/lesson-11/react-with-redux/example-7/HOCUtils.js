@@ -5,15 +5,15 @@ function getDisplayName (WrappedComponent) {
     return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
 
-const withLogging = (Injectable, options = { delay: 1000, color: 'f8075a' }) => {
+const withLogging = (Injectable) => {
     class WithLogging extends Component {
         componentWillMount () {
             const component = `${getDisplayName(Injectable)} component:`;
-            const report = () => log(`${component} log to external service...`, options.color);
+            const report = () => log(`${component} log to external service...`, 'f8075a');
 
             report();
 
-            this.log = setInterval(report, options.delay);
+            this.log = setInterval(report, 1000);
         }
 
         componentWillUnmount () {

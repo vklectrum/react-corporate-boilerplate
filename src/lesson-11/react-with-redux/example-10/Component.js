@@ -1,22 +1,25 @@
 import React, { Component, Fragment } from 'react';
-import withLogging from './HOCUtils';
+import withHover from './HOCUtils';
 
-// @withLogging({ delay: 5000, color: 'ad0144' })
+@withHover({ color1: 'gold', color2: 'rebeccapurple', fontSize: 32, transition: 'font-size .3s ease' })
 class Heading extends Component {
     render () {
-        return <h1>Heading of a component!</h1>;
+        const { style } = this.props;
+
+        return <h1 style = { style }>Heading of a component!</h1>;
     }
 }
 
-// @withLogging({ delay: 1000, color: '00ff11' })
+@withHover({ color1: 'deepskyblue', color2: 'firebrick', fontSize: 24, transition: 'font-size .3s ease' })
 class Body extends Component {
     render () {
-        return <p>Body of a component!</p>;
+        const { style } = this.props;
+
+        return <p style = { style }>Body of a component!</p>;
     }
 }
 
-// @withLogging({ delay: 100, color: 'dd9911' })
-class Base extends Component {
+export default class Base extends Component {
     render () {
         return (
             <Fragment>
@@ -26,5 +29,3 @@ class Base extends Component {
         );
     }
 }
-
-export default withLogging({ delay: 2000, color: 'ff2ee0' })(Base);
