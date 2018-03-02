@@ -18,7 +18,7 @@ const users = new schema.Array(
         admins: adminSchema,
         users:  userSchema,
     },
-    (input) => `${input.type}s`,
+    (input) => `${input.type}s`, // users || admins
 );
 
 // Нормализированные выходные данные

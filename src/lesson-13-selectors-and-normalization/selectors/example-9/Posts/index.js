@@ -1,5 +1,5 @@
 // Core
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -8,7 +8,7 @@ import { log } from 'helpers';
 import { selectPostsByGender, makeSelectPostsByGender } from '../selectors/posts';
 import * as postsActions from '../../../core/actions/posts';
 
-class Posts extends Component {
+class Posts extends PureComponent {
     _createPost = () => this.props.actions.createPost();
 
     render () {
@@ -33,6 +33,7 @@ class Posts extends Component {
 }
 
 const mapStateToProps = (state, props) => {
+    log('MSTP is called: Posts', '9f49fe');
 
     console.time(`selectPostsByGender selector for '${props.instance}' instance`);
     const posts = selectPostsByGender(state, props);

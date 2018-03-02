@@ -5,14 +5,13 @@ import { bindActionCreators } from 'redux';
 
 // Instruments
 import { log } from 'helpers';
-import * as postsActions from '../../../core/actions/posts';
 import { selectUsers, selectUsersMemoized } from '../selectors/users';
 
 class Users extends Component {
     render () {
         const { users } = this.props;
 
-        log('render method is called: Users', '387f71');
+        log('render method is called: Users', '38dddd');
 
         const list = users.map(({ id, fullname }) => <li key = { id }>{fullname}</li>);
 
@@ -26,21 +25,17 @@ class Users extends Component {
 }
 
 const mapStateToProps = (state) => {
-    log('MSTP is called: Users', '387f71');
+    log('MSTP is called: Users', '38dddd');
 
-    console.time('• selectUsers selector •');
-    const users = selectUsers(state);
-    console.timeEnd('• selectUsers selector •');
+    // console.time('• selectUsers selector •');
+    // const users = selectUsers(state);
+    // console.timeEnd('• selectUsers selector •');
 
-    // console.time('• selectUsersMemoized selector •');
-    // const users = selectUsersMemoized(state);
-    // console.timeEnd('• selectUsersMemoized selector •');
+    console.time('• selectUsersMemoized selector •');
+    const users = selectUsersMemoized(state);
+    console.timeEnd('• selectUsersMemoized selector •');
 
     return { users };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(postsActions, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default connect(mapStateToProps)(Users);
