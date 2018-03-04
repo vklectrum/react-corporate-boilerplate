@@ -23,14 +23,14 @@ const array2 = array1.map((item) => ({
 // console.log('length array1:', array1);
 // console.log('length array2:', array2);
 
-const list1 = List(array1);
-const list2 = List(array2);
-
 measure(() => {
     const array3 = array1.map((item1) =>
         Object.assign({}, item1, array2.find((item2) => item2.id === item1.id)),
     );
 }, 'array');
+
+const list1 = List(array1);
+const list2 = List(array2);
 
 measure(() => {
     const list3 = list1.merge(list2);

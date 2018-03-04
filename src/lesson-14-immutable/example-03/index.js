@@ -17,9 +17,9 @@ measure(() => {
 }, 'list filter');
 
 measure(() => {
-    const array3 = array1.map((item) => item ** 2);
+    const array3 = array1.map((item) => item ** 20);
 }, 'array map');
 
 measure(() => {
-    const list3 = list1.map((item) => item ** 2);
+    const list3 = list1.map((item) => item ** 20);
 }, 'list map');

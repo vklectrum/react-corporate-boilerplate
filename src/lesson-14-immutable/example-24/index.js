@@ -1,7 +1,7 @@
 // Core
 import { Stack, List } from 'immutable';
 
-const stack1 = Stack([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+const stack1 = Stack([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]); // FILO
 
 const first = stack1.peek(); // or .first()
 

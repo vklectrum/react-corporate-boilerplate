@@ -6,6 +6,8 @@ const list2 = list1.interpose('hello1');
 
 console.log('• list2 •', list2);
 
-const list3 = list1.interleave('hello2');
+const list3 = list1.interleave(['h', 'e', 'l', 'l', 'o', '2']);
+const list4 = list1.interleave('hello3');
 
 console.log('• list3 •', list3);
+console.log('• list4 •', list4);

@@ -18,21 +18,21 @@ console.log('• store1 === store2 •', store1 === store2);
 
 console.log(' --- ---');
 
-const apple1 = store1.get('apple');
-const banana1 = store1.get('banana');
+const applePrice1 = store1.get('apple').get('price');
+const bananaPrice1 = store1.get('banana').get('price');
 
-console.log('• apple1 •', apple1);
-console.log('• banana1 •', banana1);
-
-console.log(' --- ---');
-
-const apple2 = store2.get('apple');
-const banana2 = store2.get('banana');
-
-console.log('• apple2 •', apple2);
-console.log('• banana2 •', banana2);
+console.log('• applePrice1 •', applePrice1);
+console.log('• bananaPrice1 •', bananaPrice1);
 
 console.log(' --- ---');
 
-console.log('• apple1 === apple2 •', apple1 === apple2);
-console.log('• banana1 === banana2 •', banana1 === banana2);
+const applePrice2 = store2.getIn(['apple', 'price']);
+const bananaPrice2 = store2.getIn(['banana', 'price']);
+
+console.log('• applePrice2 •', applePrice2);
+console.log('• bananaPrice2 •', bananaPrice2);
+
+console.log(' --- ---');
+
+console.log('• applePrice1 === applePrice2 •', applePrice1 === applePrice2);
+console.log('• bananaPrice1 === bananaPrice2 •', bananaPrice1 === bananaPrice2);

@@ -14,7 +14,7 @@ for (let i = 0; i < unknownSize; i++) {
 console.timeEnd('• 1 •');
 
 console.time('• 2 •');
-list3 = list1.withMutations((mutatable) => {
+list3 = list2.withMutations((mutatable) => {
     for (let i = 0; i < unknownSize; i++) {
         mutatable.push(unknownSize);
     }

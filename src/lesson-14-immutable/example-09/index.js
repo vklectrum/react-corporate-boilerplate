@@ -5,15 +5,15 @@ import { random } from 'faker';
 // Instruments
 import { measure } from 'helpers';
 
-const toggleTodoNative = (todos, id) => Object.assign({}, todos, {
-    [id]: Object.assign({}, todos[id], {
-        completed: !todos[id].completed,
-    }),
-});
+const toggleTodoNative = (todos, id) =>
+    Object.assign({}, todos, {
+        [id]: Object.assign({}, todos[id], {
+            completed: !todos[id].completed,
+        }),
+    });
 
-const toggleTodoImmutable = (todos, id) => todos.update(id, (todo) =>
-    todo.update('completed', (completed) => !completed),
-);
+const toggleTodoImmutable = (todos, id) =>
+    todos.update(id, (todo) => todo.update('completed', (completed) => !completed));
 
 const mutableTodos = {};
 
