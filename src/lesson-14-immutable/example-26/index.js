@@ -18,9 +18,10 @@ console.log('• list2 •', list2);
 console.log('•--- --- •');
 
 const size = 100000;
+const array = [...Array(size).keys()];
 const list = Range(1, size).toList();
 const range = Range(1, size);
-const seq = Seq([...Array(size).keys()]);
+const seq = Seq(array);
 
 console.log('• list •', list);
 console.log('• range •', range);
@@ -37,6 +38,10 @@ measure(() => {
 measure(() => {
     seq.filter((x) => x % 2 !== 0).map((x) => x * x);
 }, 'seq');
+
+measure(() => {
+    array.filter((x) => x % 2 !== 0).map((x) => x * x);
+}, 'array');
 
 const map = Map({ a: 1, b: 2, c: 3 });
 const squareOddValuesList = List(
