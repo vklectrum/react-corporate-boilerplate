@@ -13,7 +13,7 @@ class Counter extends Component {
     _decrement = () => this.props.actions.decrement();
 
     render () {
-        log('render method is called: Counter', 'ad1443');
+        log('render method is called: Counter', '00ff11');
 
         return (
             <section>
@@ -28,7 +28,7 @@ class Counter extends Component {
 }
 
 const mapStateToProps = (state) => {
-    log('MSTP is called: Counter', 'ad1443');
+    log('MSTP is called: Counter', '00ff11');
 
     return { counter: state.counter };
 };

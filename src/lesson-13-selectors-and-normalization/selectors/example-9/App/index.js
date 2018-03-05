@@ -20,10 +20,10 @@ class App extends Component {
         return (
             <section>
                 <Counter />
-                {/*<Users />*/}
-                {/*<Posts byGenderOf = 'males' instance = 'males' />*/}
-                {/*<Posts byGenderOf = 'males' instance = 'males' />*/}
-                {/*<Posts byGenderOf = 'females' instance = 'females' />*/}
+                {/* <Users />*/ }
+                {/* <Posts byGenderOf = 'males' instance = 'males' /> */}
+                {/* <Posts byGenderOf = 'males' instance = 'males' /> */}
+                {/* <Posts byGenderOf = 'females' instance = 'females' /> */}
             </section>
         );
     }

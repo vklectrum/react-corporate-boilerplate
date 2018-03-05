@@ -22,5 +22,13 @@ const denormalized = [
 ];
 
 // Объявление схем
+const usersSchema = new schema.Entity('users');
+
+const articleSchema = new schema.Entity('articles', {
+    author: usersSchema,
+});
+
+const normalized = normalize(denormalized, [articleSchema]);
 
 // Нормализированные выходные данные
+console.log('• normalized •', normalized);

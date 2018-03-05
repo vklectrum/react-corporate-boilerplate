@@ -21,5 +21,18 @@ const denormalized = {
 };
 
 // Объявление схем
+const usersSchema = new schema.Entity('users');
+const commentsSchema = new schema.Entity('comments', {
+    commenter: usersSchema,
+});
+
+const articleSchema = new schema.Entity('articles', {
+    author:   usersSchema,
+    comments: [commentsSchema],
+});
 
 // Нормализированные выходные данные
+const normalized = normalize(denormalized, articleSchema);
+
+// Нормализированные выходные данные
+console.log('• normalized •', normalized);

@@ -26,7 +26,7 @@ const getPrefix = (users) =>
 export const selectUsers = (state) => {
     const selected = getPrefix(state.users);
 
-    log('selectUsers selector computed', '387f71');
+    log('selectUsers selector computed', '38dddd');
 
     return selected;
 };
@@ -37,7 +37,7 @@ const extractUsers = (state) => state.users;
 export const selectUsersMemoized = createSelector(extractUsers, (users) => {
     const selected = getPrefix(users);
 
-    log('selectUsersMemoized selector computed', '387f71');
+    log('selectUsersMemoized selector computed', '38dddd');
 
     return selected;
 });
