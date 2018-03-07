@@ -22,12 +22,12 @@ class Thunk extends Component {
                 {
                     congrats
                         ? <p style = {{ color: 'green' }}>{ 'Поздравляю, ты смог отправить 2 запроса на получение постов :)' }</p>
-                        : null
+                        : <p>&nbsp;</p>
                 }
                 {
                     isFetching
                         ? <p>Loading...</p>
-                        : null
+                        : <p>&nbsp;</p>
                 }
                 <ul>
                     { postsLi }

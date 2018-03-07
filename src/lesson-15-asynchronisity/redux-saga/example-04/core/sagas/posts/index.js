@@ -13,7 +13,6 @@ export default {
     },
     * watchAndLog () {
         for (let i = 0; i < 2; i++) {
-            console.log(i);
             const action = yield take('FETCH_POSTS');
         }
         yield put({ type: 'SHOW_CONGRATULATION' });
