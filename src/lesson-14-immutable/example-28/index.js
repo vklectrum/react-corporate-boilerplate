@@ -24,5 +24,5 @@ class ABRecordExtended extends ABRecord {
   }
 }
 
-var myRecord3 = new ABRecordExtended({b: 3})
+const myRecord3 = new ABRecordExtended({b: 3})
 console.log('• myRecord3.getAB() •', myRecord3.getAB());

@@ -10,4 +10,4 @@
 * [Using ImmutableJS in React - Redux Applications ](https://scotch.io/tutorials/using-immutablejs-in-react-redux-applications)
 * [Документация Immutable.js](https://facebook.github.io/immutable-js/)
 * [Доклад Lee Byron, одного из ключевых инженеров Facebook об Immutable.js](https://www.youtube.com/watch?v=I7IdS-PbEgI&feature=youtu.be)
-* [Еще один отличный доклад Lee Byron об иммутабельной архитектуре и GraphQL](https://vimeo.comalbum/3953264video/166790294)
+* [Еще один отличный доклад Lee Byron об иммутабельной архитектуре и GraphQL](https://vimeo.com/album/3953264/video/166790294)

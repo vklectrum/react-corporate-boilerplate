@@ -16,4 +16,5 @@ import './theme/reset';
 // import './lesson-11-react-with-redux';
 // import './lesson-12-routing-with-redux';
 // import './lesson-13-selectors-and-normalization';
-import './lesson-14-immutable';
+// import './lesson-14-immutable';
+import './lesson-15-asynchronisity';
