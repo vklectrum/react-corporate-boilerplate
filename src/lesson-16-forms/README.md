@@ -10,3 +10,4 @@
 * Нативная валидация [HTML форм](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation)
 * Хорошая серия про валидацию форм [часть 1](https://css-tricks.com/form-validation-part-1-constraint-validation-html/), [часть 2](https://css-tricks.com/form-validation-part-2-constraint-validation-api-javascript/), [часть 3](https://css-tricks.com/form-validation-part-3-validity-state-api-polyfill/), [часть 4 (MailChimp)](https://css-tricks.com/form-validation-part-4-validating-mailchimp-subscribe-form/).
 * Главный [претендент](https://redux-form.com) на победу ← Redux form
+* Победитель ['react-redux-form'](http://davidkpiano.github.io/react-redux-form/docs)
