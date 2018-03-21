@@ -1,11 +1,16 @@
 // Core
+import { addLocaleData } from 'react-intl';
 import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+
+import uk from 'react-intl/locale-data/uk';
+import ru from 'react-intl/locale-data/ru';
+
+addLocaleData([...uk, ...ru]);
 
 // Instruments
 import reducer from '../reducers/index';
-import { saga } from '../sagas/index';
 
 const logger = createLogger({
     duration:  true,
@@ -20,14 +25,6 @@ const logger = createLogger({
     },
 });
 
-const sagaMiddleware = createSagaMiddleware();
-const middleware = [sagaMiddleware, logger];
+const middleware = [thunk, logger];
 
-const store = createStore(reducer, applyMiddleware(...middleware));
-
-/*
-* Метод run необходимо обязательно запускать после createStore
-* */
-sagaMiddleware.run(saga);
-
-export default store;
+export default createStore(reducer, applyMiddleware(...middleware));
