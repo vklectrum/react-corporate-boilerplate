@@ -6,8 +6,8 @@ const fetchPostsAc = (data) => ({
     payload: data,
 });
 
-export const fetchPosts = () => {
-    return (dispatch, getState, api) => {
+export const fetchPosts = () =>
+    (dispatch, getState, api) => {
         fetch(`${api}/posts`)
             .then((response) => response.json())
             .then((result) => {
@@ -15,4 +15,3 @@ export const fetchPosts = () => {
                 dispatch(fetchPostsAc(result));
             });
     };
-};
