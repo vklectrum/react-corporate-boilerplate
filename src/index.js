@@ -19,4 +19,5 @@ import './theme/reset';
 // import './lesson-14-immutable';
 // import './lesson-15-asynchronisity';
 // import './lesson-16-forms';
-import './lesson-17-i18n';
+// import './lesson-17-i18n';
+import './lesson-18-integration-testing';

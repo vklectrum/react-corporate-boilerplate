@@ -47,7 +47,9 @@ class Main extends Component {
                         description = 'Приветствие пользователя'
                         id = 'message'
                         values = { {
-                            name: 'Гость',
+                            name:   'Гость',
+                            ukName: 'Андрій',
+                            ruName: 'Андрей'
                         } }
                     />
                 </section>
