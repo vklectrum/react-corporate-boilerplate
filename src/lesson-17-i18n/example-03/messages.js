@@ -1,8 +1,8 @@
 export default {
     'uk': {
-        'message': 'Привіт, Андрію!',
+        'message': 'Привіт, { ukName }!',
     },
     'ru': {
-        'message': 'Привет, Андрей!',
+        'message': 'Привет, { ruName }!',
     },
 };
